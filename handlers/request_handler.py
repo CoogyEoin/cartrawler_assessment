@@ -13,4 +13,8 @@ class RequestHandler:
         self.url = url
 
     def make_get_request(self):
-        return requests.get(self.url).content
+        try:
+            return requests.get(self.url).content
+        except requests.exceptions.RequestException as e:
+            return e
+
